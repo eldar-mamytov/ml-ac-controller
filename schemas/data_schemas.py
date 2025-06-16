@@ -1,5 +1,5 @@
 from pydantic import BaseModel, validator, Field, ValidationError
-from typing import Literal, Annotated
+from typing import Literal, Annotated, Optional
 from config import SEASON_TEMPS
 
 # Define allowed values
@@ -13,7 +13,7 @@ class ACDataPoint(BaseModel):
     season: Season
     occupancy: Annotated[int, Field(ge=0, le=10)]          # 0-10 peple
     weather: Weather
-    ac_state: ACState
+    ac_state: Optional[Literal["On", "Off"]] = None
 
     @validator('temperature')
     def check_season_temp(cls, v, values):
