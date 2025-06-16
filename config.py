@@ -33,7 +33,7 @@ WEATHER_SIM_FILE = os.path.join(UTILS_DIR, 'weather_simulator.py')
 # Weather Settings
 SEASON_TEMPS = {
     'winter': (20, 40),
-    'sprint': (45, 70),
+    'spring': (45, 70),
     'summer': (70, 95),
     'autumn': (40, 65)
 }

@@ -1,6 +1,8 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from utils import weather_simulation
 
-print("Success")
-
-# temp, weather = weather_simulation.generate_weather("summer")
-# print(f"Summer weather: {temp}F, {weather}")
+temp, weather = weather_simulation.generate_weather("spring")
+print(f"Summer weather: {temp}F, {weather}")
