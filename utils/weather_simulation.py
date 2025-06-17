@@ -1,5 +1,5 @@
 import numpy as np
-from config import SEASON_TEMPS, WEATHER_PROBS
+from app.core.config import SEASON_TEMPS, WEATHER_PROBS
 from schemas.data_schemas import Weather
 
 def generate_weather(season: str) -> tuple:

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, validator, Field, ValidationError
 from typing import Literal, Annotated, Optional
-from config import SEASON_TEMPS
+from app.core.config import SEASON_TEMPS
 
 # Define allowed values
 Season = Literal["winter", "spring", "summer", "autumn"]

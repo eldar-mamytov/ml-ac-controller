@@ -1,6 +1,6 @@
 from joblib import load
 from pathlib import Path
-from config import MODEL_FILE
+from app.core.config import MODEL_FILE
 
 # Load the model
 model = load(MODEL_FILE)

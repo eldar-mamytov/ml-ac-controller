@@ -1,36 +1,28 @@
-'''
-The project configuration file. This will store all our constants and settings in one place.
-
-File Purpose
-Stores global variables (e.g., temperature unit, file paths)
-Makes it easy to change settings without digging through code
-'''
-    
-# Project Configuration
-import os
+from pathlib import Path
 
 # Temperature Unit (Fahrenheit)
 USE_FAHRENHEIT = True
 
+# Base Directory (points to ml-ac-controller/)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # Goes up 3 levels from app/core/
+
+# Directory Paths (all relative to BASE_DIR)
+DATA_DIR = BASE_DIR / "data"
+MODELS_DIR = BASE_DIR / "models"      # Now directly under root
+SCHEMAS_DIR = BASE_DIR / "schemas"    # Now directly under root
+UTILS_DIR = BASE_DIR / "utils"        # Now directly under root
+LOGS_DIR = BASE_DIR / "logs"
+REPORTS_DIR = BASE_DIR / "reports"
+
 # File Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
-MODELS_DIR = os.path.join(BASE_DIR, 'models')
-SCHEMAS_DIR = os.path.join(BASE_DIR, 'schemas')
-UTILS_DIR = os.path.join(BASE_DIR, 'utils')
+DATA_FILE = DATA_DIR / "ac_data.csv"
+MODEL_FILE = MODELS_DIR / "ac_model.joblib"
+SCHEMA_FILE = SCHEMAS_DIR / "data_schemas.py"
+DATA_LOADER_FILE = UTILS_DIR / "data_loader.py"
+WEATHER_SIM_FILE = UTILS_DIR / "weather_simulation.py"  # Fixed filename to match your structure
+LOG_FILE = LOGS_DIR / "error.log"
 
-# Data Files
-DATA_FILE = os.path.join(DATA_DIR, 'ac_data.csv')
-MODEL_FILE = os.path.join(MODELS_DIR, 'ac_model.joblib')
-
-# Schema Files
-SCHEMA_FILE = os.path.join(SCHEMAS_DIR, 'data_schemas.py')
-
-# Utility Files
-DATA_LOADER_FILE = os.path.join(UTILS_DIR, 'data_loader.py')
-WEATHER_SIM_FILE = os.path.join(UTILS_DIR, 'weather_simulator.py')
-
-# Weather Settings
+# Weather Settings (unchanged)
 SEASON_TEMPS = {
     'winter': (20, 40),
     'spring': (45, 70),
@@ -45,23 +37,6 @@ WEATHER_PROBS = {
     'autumn': {'sunny': 0.3, 'cloudy': 0.4, 'rainy': 0.3, 'snow': 0.0}
 }
 
-
-'''
-Key Components
-USE_FAHRENHEIT: Global flag for temperature units
-
-Path configurations for organized file storage
-
-Weather simulation parameters:
-
-Temperature ranges by season
-
-Weather probability distributions
-
-Verification
-All paths use os.path.join() for cross-platform compatibility
-
-Season temperatures reflect your request (summer hotter than winter)
-
-Weather probabilities make logical sense (more snow in winter)
-'''
+# Create directories if missing (no error if exists)
+for dir_path in [DATA_DIR, MODELS_DIR, SCHEMAS_DIR, UTILS_DIR, LOGS_DIR, REPORTS_DIR]:
+    dir_path.mkdir(parents=True, exist_ok=True)

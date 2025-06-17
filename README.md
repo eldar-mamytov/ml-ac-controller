@@ -38,8 +38,8 @@ ml-ac-controller/
 │   └── *.png                      # Visualizations
 ├── logs/
 │   └── error.log                  # Error logs
-├── requirements.txt              # Python dependencies
-├── setup.py                      # Python packaging setup
+├── requirements.txt               # Python dependencies
+├── setup.py                       # Python packaging setup
 └── README.md
 
 

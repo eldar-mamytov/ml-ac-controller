@@ -16,7 +16,6 @@ def plot_feature_importance():
     sns.barplot(x=importance, y=features, hue=features, palette="Blues_d", legend=False, dodge=False)
     plt.tight_layout()
     plt.savefig("reports/feature_importance.png")
-    plt.show()
 
 
 # Creates distribution plots for key features

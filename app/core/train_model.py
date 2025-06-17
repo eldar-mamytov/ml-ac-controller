@@ -1,10 +1,16 @@
+import sys
+from pathlib import Path
+
+# Project root to python Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(PROJECT_ROOT))
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 from joblib import dump
-from pathlib import Path
-from config import MODEL_FILE, DATA_FILE
+from app.core.config import MODEL_FILE, DATA_FILE
 from schemas.data_schemas import ACDataPoint
 import numpy as np
 

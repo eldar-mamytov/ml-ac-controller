@@ -1,8 +1,15 @@
+import sys
+from pathlib import Path
+
+# Project root to python Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(PROJECT_ROOT))
+
 import numpy as np
 import pandas as pd
 from utils.weather_simulation import generate_weather
 from schemas.data_schemas import ACDataPoint, Season
-from config import DATA_FILE
+from app.core.config import DATA_FILE
 from pathlib import Path
 
 def generate_case() -> dict:

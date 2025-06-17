@@ -1,9 +1,16 @@
+import sys
+from pathlib import Path
+
+# Project root to python Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(PROJECT_ROOT))
+
 import joblib
 import numpy as np
 import pandas as pd
 from schemas.data_schemas import ACDataPoint
 from config import MODEL_FILE
-from typing import Dict, Literal
+from typing import Dict, Optional, Literal
 
 PredictionResult = Dict[Literal["ac_state", "confidence"],str]
 
