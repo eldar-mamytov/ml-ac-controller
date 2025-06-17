@@ -41,6 +41,7 @@ ml-ac-controller/
 ├── requirements.txt               # Python dependencies
 ├── setup.py                       # Python packaging setup
 └── README.md
+└── .gitignore
 
 
 ⸻
@@ -123,16 +124,3 @@ Prediction: AC should be On (confidence: 96.5%)
 Install them with:
 
 pip install -r requirements.txt
-
-
-⸻
-
-✍️ Author
-
-Created by [Your Name]. Contributions welcome!
-
-⸻
-
-📄 License
-
-This project is licensed under the MIT License. See LICENSE for details.
